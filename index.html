@@ -10,86 +10,31 @@
   <script>
 
     function search(array, sum) {
-      let start = 0;
-      let end = -1;
-      let result = [];
-      let tempSum = 0;
+      var start = 0;
+      var end = array.length;
+      var tSum = 0;
+      var find = false;
       
-      for(var i = 0; i < array.length; i++) {
-        if(tempSum < sum)
-        {
-          tempSum += array[i];
-          if(tempSum == sum) 
-          {
-            end = i;
-            result.push(start, end);
-            tempSum = 0;
-            start = i + 1;
-            continue;
-          } 
-          else
-          {
-            if(tempSum > sum)
-            {
-              tempSum -= array[start];
-              start++;
-              if(tempSum == sum) 
-              {
-                end = i;
-                result.push(start, end);
-                tempSum = 0;
-                start = i + 1;
-                continue;
-              } 
-            }
-          }
-        }
-        
-        else {
-          if(tempSum == sum) 
-            {
-              end = i - 1;
-              result.push(start, end);
-              tempSum = 0;
-              start = i;
-              continue;
-            }
-          else
-          {
-            tempSum -= array[start];
-            start++;
-            
-            if(tempSum == sum)
-            {
-              end = i - 1;
-              result.push(start, end);
-              tempSum = 0;
-              start = i;
-              continue;
-            } 
-            tempSum += array[i];
-            if(tempSum == sum)
-            {
-                end = i;
-                result.push(start, end);
-                tempSum = 0;
-                start = i + 1;
-                continue;
+      for (var i = 0; i < array.length; i++) {
+        tSum += array[i];
 
-            } 
+        if(tSum == sum){
+          end = i;
+          find = true;
+          break;
+        } else if(tSum > sum && sum){
+          while(tSum > sum){
+            tSum -= array[start];
+            start++;
+          }          
+          if(tSum == sum){
+            end = i;
+            find = true;
+            break;
           }
         }
       }
-      
-      var strRes = [];
-      
-      for(var j = 0; j < result.length; j += 2)
-      {
-        strRes.push(result[j] +'-' +result[j + 1]);
-      }
-      
-      if(end != -1) return strRes.toString();
-      else return 'NaN';
+      return find ? (start+'-'+ end) : 'notFind';
     }
 
   </script>
