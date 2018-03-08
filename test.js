@@ -1,4 +1,4 @@
-describe("extractCurrencyValue", function() {
+describe("search", function() {
 
   it("[1], 1 => 0-0", function() {
     assert.strictEqual(search([1], 1), '0-0');
@@ -55,8 +55,5 @@ describe("extractCurrencyValue", function() {
   it("[10,10,1000,100,15], 1125 => 1-4", function() {
     assert.strictEqual(search([10,10,1000,100,15], 1125), '1-4');
   });
-
-
-
 
 });
