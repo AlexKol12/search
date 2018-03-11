@@ -12,12 +12,12 @@ describe("search", function() {
     assert.strictEqual(search([3,2,1], 1), '2-2');
   });
   
-  it("[1], 0 => notFind", function() {
-    assert.strictEqual(search([1], 0), 'notFind');
+  it("[1], 0 => Nothing found", function() {
+    assert.strictEqual(search([1], 0), 'Nothing found');
   });
   
-  it("[0], 1 => notFind", function() {
-    assert.strictEqual(search([0], 1), 'notFind');
+  it("[0], 1 => Nothing found", function() {
+    assert.strictEqual(search([0], 1), 'Nothing found');
   });
   
   it("[4,2,4,14,5], 6 => 0-1", function() {

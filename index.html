@@ -23,10 +23,8 @@
           find = true;
           break;
         } else if(tSum > sum && sum){
-          while(tSum > sum){
-            tSum -= array[start];
-            start++;
-          }          
+          while(tSum > sum)
+            tSum -= array[start++];
           if(tSum == sum){
             end = i;
             find = true;
@@ -34,7 +32,7 @@
           }
         }
       }
-      return find ? (start+'-'+ end) : 'notFind';
+      return find ? (start+'-'+ end) : 'Nothing found';
     }
 
   </script>
