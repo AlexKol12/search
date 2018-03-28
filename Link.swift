@@ -3,13 +3,13 @@ import CryptoSwift
 
 class Link {
   private let iData: Int
-  public var next: Link?
+  var next: Link?
 
-  public init(iData: Int) {
+  init(iData: Int) {
     self.iData = iData
   }
 
-  public func displayLink() {
+  func displayLink() {
     print("{\(iData)}")
   }
 }
@@ -19,18 +19,18 @@ class LinkList {
 
   private var first: Link?
 
-  public func isEmpty() -> Bool {
+  func isEmpty() -> Bool {
     return first == nil
   }
 
-  public func insertFirst(iData: Int) {
+  func insertFirst(iData: Int) {
     let newLink = Link(iData: iData)
     newLink.next = first
     first = newLink
   }
 
   
-  public func deleteFirst() -> Link? {
+  func deleteFirst() -> Link? {
     
     guard let first = first else { return nil }
     
@@ -39,7 +39,7 @@ class LinkList {
   }
 
  
-  public func displayList() {
+  func displayList() {
     print("List (first --> last)")
     
     var element = first
